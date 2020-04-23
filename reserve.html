@@ -29,12 +29,12 @@
         <br />
 
         <div class="text-center">
-          <a href="tables.html"
+          <a href="/tables"
             ><button type="button" class="btn btn-lg btn-primary">
               <span class="glyphicon glyphicon-list-alt"></span> View Tables
             </button></a
           >
-          <a href="index.html"
+          <a href="/"
             ><button type="button" class="btn btn-lg btn-default">
               <span class="glyphicon glyphicon-home"></span></button
           ></a>
@@ -95,31 +95,31 @@
 </html>
 
 <script type="text/javascript">
-  $('.submit').on('click', function () {
+  $(".submit").on("click", function () {
     var newReservation = {
-      customerName: $('#reserve_name').val().trim(),
-      phoneNumber: $('#reserve_phone').val().trim(),
-      customerEmail: $('#reserve_email').val().trim(),
-      customerID: $('#reserve_uniqueID').val().trim(),
+      customerName: $("#reserve_name").val().trim(),
+      phoneNumber: $("#reserve_phone").val().trim(),
+      customerEmail: $("#reserve_email").val().trim(),
+      customerID: $("#reserve_uniqueID").val().trim(),
     };
 
     console.log(newReservation);
 
     var currentURL = window.location.origin;
 
-    $.post(currentURL + '/api/tables', newReservation, function (data) {
+    $.post(currentURL + "/api/tables", newReservation, function (data) {
       if (data == true) {
-        alert('Your table is booked!');
+        alert("Your table is booked!");
       }
 
       if (data == false) {
-        alert('Sorry, you are on the wait list');
+        alert("Sorry, you are on the wait list");
       }
 
-      $('#reserve_name').val('');
-      $('#reserve_phone').val('');
-      $('#reserve_email').val('');
-      $('#reserve_uniqueID').val('');
+      $("#reserve_name").val("");
+      $("#reserve_phone").val("");
+      $("#reserve_email").val("");
+      $("#reserve_uniqueID").val("");
     });
 
     return false;
