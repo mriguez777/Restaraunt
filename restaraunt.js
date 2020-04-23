@@ -2,7 +2,7 @@ var express = require("express");
 var path = require("path");
 
 var app = express();
-var PORT = 3000;
+var PORT = 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -61,10 +61,28 @@ app.post("/api/dinners", function (req, res) {
   console.log(newdinners);
 
   // We then add the json the user sent to the character array
-  characters.push(newdinners);
+  dinners.push(newdinners);
 
   // We then display the JSON to the users
   res.json(newdinners);
+});
+
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
+});
+
+app.post("/api/waitlist", function (req, res) {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  var newlist = req.body;
+
+  console.log(newlist);
+
+  // We then add the json the user sent to the character array
+  waitlist.push(newlist);
+
+  // We then display the JSON to the users
+  res.json(newlist);
 });
 
 app.listen(PORT, function () {
